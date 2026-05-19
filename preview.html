@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đề trắc nghiệm Giới hạn DUYMT</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body{font-family:Arial,sans-serif;background:#f5f7fb;margin:0} .container{max-width:1000px;margin:auto;padding:20px}
+.question{background:#fff;padding:20px;margin:20px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.option{padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:8px;cursor:pointer}
+.option:hover{background:#eef6ff} .correct{background:#d4edda!important} .wrong{background:#f8d7da!important}
+.explanation{display:none;margin-top:10px;padding:10px;background:#fffbe6;border-left:4px solid #f0ad4e}
+#scoreBox{position:sticky;top:0;background:#0a4d8c;color:#fff;padding:12px;border-radius:0 0 10px 10px}
+.badge{display:inline-block;padding:4px 8px;border-radius:999px;color:#fff;font-size:12px;background:#6f42c1}
+</style></head><body><div class="container">
+<div id="scoreBox">Điểm: <span id="score">0</span> / 20</div>
+<h1>Đề Trắc Nghiệm Tương Tác: Giới hạn – Cái vô hạn trong cái hữu hạn</h1>
+<div id="quiz"></div></div>
+<script>
+const questions = [{"type": "Lý thuyết", "difficulty": "Lý thuyết", "question": "Theo DUYMT, giới hạn là gì?", "options": ["Một số đạt được", "Đích đến mà quá trình tiến gần tới", "Phép biến đổi", "Một đồ thị"], "answer": 1, "explanation": "Giới hạn mô tả xu hướng tiến gần.", "tip": "Từ khóa: tiến gần."}, {"type": "Lý thuyết", "difficulty": "Lý thuyết", "question": "Deconstruction là gì?", "options": ["Học thuộc", "Tự xây dựng lại khái niệm", "Bỏ qua chứng minh", "Dùng AI"], "answer": 1, "explanation": "Tái tạo tri thức từ trực giác.", "tip": "Hãy tự nghĩ lại từ đầu."}, {"type": "Lý thuyết", "difficulty": "Lý thuyết", "question": "Harnessing AI nghĩa là gì?", "options": ["Không dùng AI", "Để AI làm hết", "Điều khiển AI", "Chép bài"], "answer": 2, "explanation": "Bạn điều khiển AI.", "tip": "AI là công cụ."}, {"type": "Lý thuyết", "difficulty": "Lý thuyết", "question": "\\(\\varepsilon\\) biểu diễn gì?", "options": ["Sai số đầu ra", "Khoảng của x", "Giới hạn", "Số bước"], "answer": 0, "explanation": "\\(\\varepsilon\\) gắn với |f(x)-L|.", "tip": "Epsilon = error."}, {"type": "Lý thuyết", "difficulty": "Lý thuyết", "question": "Giới hạn được triết học hóa thành gì?", "options": ["Công thức", "Ranh giới hữu hạn-vô hạn", "Số học", "Đồ thị"], "answer": 1, "explanation": "Đó là ý nghĩa triết học của giới hạn.", "tip": "Chọn đáp án khái quát nhất."}, {"type": "Bài tập", "difficulty": "Dễ", "question": "\\(\\lim_{x\\to 1}(x+2)=?\\)", "options": ["1", "2", "3", "4"], "answer": 2, "explanation": "Thay trực tiếp.", "tip": "Hàm liên tục."}, {"type": "Bài tập", "difficulty": "Dễ", "question": "\\(\\lim_{x\\to 2}x^2=?\\)", "options": ["2", "4", "8", "0"], "answer": 1, "explanation": "Thay trực tiếp.", "tip": "Đa thức liên tục."}, {"type": "Bài tập", "difficulty": "Dễ", "question": "\\(\\lim_{x\\to 0}\\sin x/x=?\\)", "options": ["0", "1", "∞", "KXT"], "answer": 1, "explanation": "Giới hạn cơ bản.", "tip": "Công thức chuẩn."}, {"type": "Bài tập", "difficulty": "Dễ", "question": "\\(\\lim_{x\\to 3}(2x-1)=?\\)", "options": ["5", "6", "7", "8"], "answer": 0, "explanation": "2.3-1=5.", "tip": "Thay trực tiếp."}, {"type": "Bài tập", "difficulty": "Dễ", "question": "\\(\\lim_{x\\to -1}(x^2+1)=?\\)", "options": ["0", "1", "2", "-2"], "answer": 2, "explanation": "1+1=2.", "tip": "Bình phương số âm."}, {"type": "Bài tập", "difficulty": "Trung bình", "question": "\\(\\lim_{x\\to 1}\\frac{x^2-1}{x-1}=?\\)", "options": ["0", "1", "2", "KXT"], "answer": 2, "explanation": "Rút gọn thành x+1.", "tip": "Hiệu hai bình phương."}, {"type": "Bài tập", "difficulty": "Trung bình", "question": "\\(\\lim_{x\\to 2}\\frac{x^2-4}{x-2}=?\\)", "options": ["2", "4", "6", "8"], "answer": 1, "explanation": "Rút gọn thành x+2.", "tip": "Phân tích tử."}, {"type": "Bài tập", "difficulty": "Trung bình", "question": "\\(\\lim_{x\\to \\infty}\\frac{3x+1}{x}=?\\)", "options": ["0", "1", "3", "∞"], "answer": 2, "explanation": "Lấy hệ số bậc cao nhất.", "tip": "Chia cho x."}, {"type": "Bài tập", "difficulty": "Trung bình", "question": "\\(\\lim_{n\\to\\infty}1/n=?\\)", "options": ["1", "0", "∞", "KXT"], "answer": 1, "explanation": "Mẫu tăng vô hạn.", "tip": "Tử cố định."}, {"type": "Bài tập", "difficulty": "Trung bình", "question": "\\(\\lim_{x\\to 0}\\frac{1-\\cos x}{x^2}=?\\)", "options": ["1", "1/2", "0", "2"], "answer": 1, "explanation": "Giới hạn cơ bản.", "tip": "Nhớ công thức."}, {"type": "Bài tập", "difficulty": "Khó", "question": "\\(\\lim_{x\\to 0}\\frac{e^x-1}{x}=?\\)", "options": ["0", "1", "e", "KXT"], "answer": 1, "explanation": "Giới hạn cơ bản.", "tip": "Công thức chuẩn."}, {"type": "Bài tập", "difficulty": "Khó", "question": "\\(\\lim_{x\\to 0}\\frac{\\ln(1+x)}{x}=?\\)", "options": ["0", "1", "-1", "∞"], "answer": 1, "explanation": "Giới hạn cơ bản.", "tip": "Công thức chuẩn."}, {"type": "Bài tập", "difficulty": "Khó", "question": "\\(\\lim_{x\\to \\infty}(1+1/x)^x=?\\)", "options": ["1", "2", "e", "∞"], "answer": 2, "explanation": "Định nghĩa e.", "tip": "Dạng kinh điển."}, {"type": "Bài tập", "difficulty": "Khó", "question": "\\(\\lim_{x\\to 0}\\tan x/x=?\\)", "options": ["0", "1", "∞", "KXT"], "answer": 1, "explanation": "Giới hạn cơ bản.", "tip": "tan x ~ x."}, {"type": "Bài tập", "difficulty": "Khó", "question": "\\(\\lim_{x\\to 0}\\frac{x-\\sin x}{x^3}=?\\)", "options": ["1/6", "1/3", "0", "1"], "answer": 0, "explanation": "Giới hạn chuẩn.", "tip": "Nhớ 1/6."}];
+let score=0;
+function render(){
+ const quiz=document.getElementById('quiz');
+ questions.forEach((q,i)=>{
+  const div=document.createElement('div'); div.className='question';
+  div.innerHTML=`<span class="badge">${q.type}${q.type==='Bài tập'?' - '+q.difficulty:''}</span>
+  <h3>Câu ${i+1}. ${q.question}</h3>
+  <div class="opts"></div>
+  <div class="explanation" id="exp-${i}">
+  <b>Đáp án đúng:</b> ${String.fromCharCode(65+q.answer)}<br>
+  <b>Giải thích:</b> ${q.explanation}<br>
+  <b>Mẹo làm nhanh:</b> ${q.tip}</div>`;
+  const opts=div.querySelector('.opts');
+  q.options.forEach((op,j)=>{
+    const o=document.createElement('div'); o.className='option';
+    o.innerHTML=`<b>${String.fromCharCode(65+j)}.</b> ${op}`;
+    o.onclick=()=>choose(i,j,o);
+    opts.appendChild(o);
+  });
+  quiz.appendChild(div);
+ });
+ MathJax.typesetPromise();
+}
+function choose(i,j,el){
+ const q=questions[i];
+ const div=document.getElementsByClassName('question')[i];
+ const opts=div.querySelectorAll('.option');
+ if([...opts].some(o=>o.classList.contains('correct')||o.classList.contains('wrong'))) return;
+ opts[q.answer].classList.add('correct');
+ if(j===q.answer){ el.classList.add('correct'); score++; }
+ else el.classList.add('wrong');
+ document.getElementById('score').textContent=score;
+ document.getElementById('exp-'+i).style.display='block';
+ MathJax.typesetPromise();
+}
+render();
+</script></body></html>
